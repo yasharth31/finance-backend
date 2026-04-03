@@ -61,3 +61,11 @@ exports.delete = async (req, res, next) => {
         next(err);
     }
 };
+exports.getSummary = async (req, res, next) => {
+    try {
+        const summary = await transactionService.getSummary(req.user.id);
+        res.json(summary);
+    } catch (err) {
+        next(err);
+    }
+};

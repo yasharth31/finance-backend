@@ -45,3 +45,23 @@ exports.deleteTransaction = (id, userId) => {
         user: userId
     });
 };
+exports.getSummary = async (userId) => {
+    const transactions = await Transaction.find({ user: userId });
+
+    let income = 0;
+    let expense = 0;
+
+    transactions.forEach(tx => {
+        if (tx.type === 'income') {
+            income += tx.amount;
+        } else {
+            expense += tx.amount;
+        }
+    });
+
+    return {
+        totalIncome: income,
+        totalExpense: expense,
+        balance: income - expense
+    };
+};
