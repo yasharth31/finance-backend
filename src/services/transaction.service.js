@@ -4,8 +4,28 @@ exports.createTransaction = (data) => {
     return Transaction.create(data);
 };
 
-exports.getUserTransactions = (userId) => {
-    return Transaction.find({ user: userId });
+exports.getUserTransactions = (userId, query) => {
+    let filter = { user: userId };
+
+    // Filter by type
+    if (query.type) {
+        filter.type = query.type;
+    }
+
+    // Filter by category
+    if (query.category) {
+        filter.category = query.category;
+    }
+
+    // Filter by date range
+    if (query.startDate && query.endDate) {
+        filter.createdAt = {
+            $gte: new Date(query.startDate),
+            $lte: new Date(query.endDate)
+        };
+    }
+
+    return Transaction.find(filter);
 };
 
 exports.getAllTransactions = () => {

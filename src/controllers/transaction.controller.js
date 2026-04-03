@@ -12,7 +12,11 @@ exports.create = async (req, res, next) => {
 
 exports.getMyTransactions = async (req, res, next) => {
     try {
-        const txs = await transactionService.getUserTransactions(req.user.id);
+        const txs = await transactionService.getUserTransactions(
+            req.user.id,
+            req.query
+        );
+
         res.json(txs);
     } catch (err) {
         next(err);
