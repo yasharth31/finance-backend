@@ -27,3 +27,33 @@ exports.getAll = async (req, res, next) => {
         next(err);
     }
 };
+exports.update = async (req, res, next) => {
+    try {
+        const tx = await transactionService.updateTransaction(
+            req.params.id,
+            req.user.id,
+            req.body
+        );
+
+        if (!tx) return res.status(404).json({ message: "Transaction not found" });
+
+        res.json(tx);
+    } catch (err) {
+        next(err);
+    }
+};
+
+exports.delete = async (req, res, next) => {
+    try {
+        const tx = await transactionService.deleteTransaction(
+            req.params.id,
+            req.user.id
+        );
+
+        if (!tx) return res.status(404).json({ message: "Transaction not found" });
+
+        res.json({ message: "Deleted successfully" });
+    } catch (err) {
+        next(err);
+    }
+};

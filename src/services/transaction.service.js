@@ -11,3 +11,17 @@ exports.getUserTransactions = (userId) => {
 exports.getAllTransactions = () => {
     return Transaction.find().populate('user');
 };
+exports.updateTransaction = (id, userId, data) => {
+    return Transaction.findOneAndUpdate(
+        { _id: id, user: userId },
+        data,
+        { new: true }
+    );
+};
+
+exports.deleteTransaction = (id, userId) => {
+    return Transaction.findOneAndDelete({
+        _id: id,
+        user: userId
+    });
+};
