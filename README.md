@@ -27,7 +27,7 @@
 3. Create a .env file and add:
    PORT=5000
    MONGO_URI=mongodb://localhost:27017/financebackend
-   JWT_SECRET=your_secret
+   JWT_SECRET=supersecret
 
 4. Run the server:
    node server.js
