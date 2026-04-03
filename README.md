@@ -26,7 +26,7 @@
 
 3. Create a .env file and add:
    PORT=5000
-   MONGO_URI=your_mongodb_url
+   MONGO_URI=mongodb://localhost:27017/financebackend
    JWT_SECRET=your_secret
 
 4. Run the server:
@@ -41,11 +41,11 @@
 - POST /api/auth/login
 
 ### Transactions
-POST /api/transactions
-GET /api/transactions/me
-PUT /api/transactions/:id
-DELETE /api/transactions/:id
-GET /api/transactions/summary
+- POST /api/transactions
+- GET /api/transactions/me
+- PUT /api/transactions/:id
+- DELETE /api/transactions/:id
+- GET /api/transactions/summary
 
 ## Dashboard APIs
 
