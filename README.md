@@ -65,7 +65,7 @@ The application uses **MongoDB** for data storage, ensuring all financial record
 
 - Data is managed using **Mongoose ODM**
 - All transactions are stored in the database
-- Data remains محفوظ even after server restarts
+- Data remains saved after server restarts
 - Collections:
   - Users
   - Transactions
