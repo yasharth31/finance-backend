@@ -59,5 +59,16 @@
 - User → Can manage own transactions
 - Admin → Can access all users' data
 
+##  Data Persistence
+
+The application uses **MongoDB** for data storage, ensuring all financial records and user data are permanently stored.
+
+- Data is managed using **Mongoose ODM**
+- All transactions are stored in the database
+- Data remains محفوظ even after server restarts
+- Collections:
+  - Users
+  - Transactions
+
 ## Author
 Yasharth Gupta
